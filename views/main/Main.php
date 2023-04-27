@@ -45,7 +45,7 @@
     <div class="container-fluid">
     <a class="navbar-brand" href="#" style="Color:white;">
       <i class="fa-solid fa-gas-pump" style="color: #ffffff;"></i>
-      Los Empresarios
+      Los Empresaurios
     </a>
     </div>
     </nav>
@@ -140,7 +140,7 @@
     </body>
     <nav class="navbar fixed-bottom bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
-    <a class="navbar-brand" id="foot" href="#">La gasolina con mayor octanage</a>
+    <a class="navbar-brand" id="foot" href="#">La gasolina con mayor octanaje</a>
     </div>
     </nav>
 </html>
