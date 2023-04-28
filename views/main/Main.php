@@ -59,10 +59,10 @@
       
       <div class="modal-body">
       <select class="form-select" aria-label="Default select example">
-        <option selected>Tipo de gasolina</option>
-        <option value="1">Regular</option>
-        <option value="2">Especial</option>
-        <option value="3">Diesel</option>
+      <option selected>Tipo de gasolina</option>
+        <option value="regular">Regular</option>
+        <option value="especial">Especial</option>
+        <option value="diesel">Diesel</option>
       </select>
       <br>
         <div class="input-group mb-3">
