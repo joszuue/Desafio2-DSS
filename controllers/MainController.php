@@ -79,14 +79,6 @@
         $this->view->renderView('main/main.php');//llamando al metodo renderView para pintar la vista
     }
 
-    function listarTanquess(){
-        $rows = $this->model->listaTanques();
-        responseAll($rows);
-    }
 
-    function responseAll($array){
-        $json_response = json_encode($array);
-        echo $json_response;
-    }
 }
 ?>
