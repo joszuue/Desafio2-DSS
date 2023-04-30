@@ -57,6 +57,27 @@
             return $array;//retornamos el arreglo
         }
 
+        function obtenerCant($idTanque){
+            $query="SELECT * FROM tanques WHERE idTanque = :idTanque";
+            $this->conexion = $this->con->conectar();
+            $cantidad = $this->conexion->prepare($query);
+            $cantidad->execute();
+            $array=array();
+            while ($row = $cantidad->fetch()) {
+                $cantilu = new TanqueliBean();
+                $cantilu->setCantRegular($row['cantRegular']);
+                $cantilu->setCantEspecial($row['cantEspecial']);
+                $cantilu->setCantDiesel($row['cantDiesel']);
+                $array[]= $cantilu;
+
+            }
+            $this->con->desconectar($this->conexion);//cerramos la conexion
+            return $array;//retornamos el arreglo
+
+        }
+
+        
+        
         function llenarRegular($id, $cant){
             $query = "UPDATE tanques SET cantRegular=:cant  WHERE idTanque = :id";
             $this->conexion = $this->con->conectar();

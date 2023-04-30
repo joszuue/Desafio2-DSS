@@ -38,7 +38,12 @@
         #foot{
             color:white;
         }
-    
+
+        
+        input:disabled {
+        background-color: #c3e6cb; /* cambia este valor por el tono de verde que desees */
+        }
+
     </style>
     <nav class="navbar bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
@@ -56,20 +61,53 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Venta de Gasolina</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      
       <div class="modal-body">
-      <select class="form-select" aria-label="Default select example">
-      <option selected>Tipo de gasolina</option>
-        <option value="regular">Regular</option>
-        <option value="especial">Especial</option>
-        <option value="diesel">Diesel</option>
-      </select>
-      <br>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Galones</span>
-            <input type="number" class="form-control" min=0 >
-        </div>
+        <form class="row g-3" action="<?php echo constant("URL")?>Main/obtenerCant" method="POST">
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Seleccionar Tanque</label>
+            <select class="form-select" aria-label="Default select example" >
+            <option value="" selected>Tanques disponibles</option>
+            <?php foreach($this->listaTanques as $lista ){?>
+                <option name="idTanque" value="<?php echo $lista->getIdTanque(); ?>">Tanque con Id: <?php echo $lista->getIdTanque(); ?></option>
+            <?php }?>
+        </select>
       </div>
+        <?php foreach($this->listaTanques as $lista ){?>
+
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Galones Regular</label>
+            <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $lista->getCantRegu(); ?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $lista->getCantRegu(); ?></div>
+            </div>        
+            </div>
+        <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Solicitar Galones</label>
+        <input type="password" min="0" max="100" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Galones Especial</label>
+            <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: <?php echo $lista->getCantRegu(); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="60"><?php echo $lista->getCantRegu(); ?></div>
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Solicitar Galones</label>
+        <input type="number" min="0" max="100" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Galones Diesel</label>
+            <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo $lista->getCantRegu(); ?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $lista->getCantRegu(); ?></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Solicitar Galones</label>
+        <input type="password" min="0" max="100" class="form-control" id="inputPassword4">
+        </div>
+        </div>
+        <?php }?>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-primary">Realizar compra</button>
@@ -77,6 +115,7 @@
     </div>
     </div>
     </div>
+    
     <div class="container" id="agre">
     <h1 class="text-center">Gasolinera los Empresaurios</h1>
     <h5 class="text-center">¡Llega más lejos con nosotros!</h5>
