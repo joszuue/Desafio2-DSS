@@ -80,7 +80,7 @@
       </div>
         <div class="col-12">
         <label for="inputPassword4" class="form-label">Cantidad de Galones</label>
-        <input type="password" class="form-control" id="inputPassword4">
+        <input type="number" min="0" max="100" class="form-control" id="inputPassword4">
         </div>
         </form>
       
